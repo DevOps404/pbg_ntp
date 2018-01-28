@@ -1,11 +1,11 @@
 # Manage NTP
-class pbg_ntp
+class pbg_ntp {
   ensure_packages(['ntp'])
 
   file { '/etc/ntp.conf':
     source => 'puppet:///modules/pbg_ntp/ntp.conf',
     notify => Service['ntp'],
-    require => Pakage['ntp'],
+    require => Package['ntp'],
   }
 
   service { 'ntp' : 
